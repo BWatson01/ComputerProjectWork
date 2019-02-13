@@ -3,7 +3,7 @@
 namespace Class_Library
 {
     public class clsCustomer
-    {
+    {//comment
         public string CustomerName { get; set; }
         public int PhoneNumber { get; set; }
         public string CustomerAddress { get; set; }
