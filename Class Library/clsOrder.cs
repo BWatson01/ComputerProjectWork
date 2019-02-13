@@ -9,6 +9,9 @@ namespace Class_Library
         public int CustomerNo { get; set; }
         public string ItemName { get; set; }
         public int Invoice { get; set; }
+        public DateTime DeliveryDate { get; set; }
+        public DateTime OrderDate { get; set; }
+        public bool Status { get; set; }
 
         public string Valid(string someOrder)
         {
@@ -26,6 +29,12 @@ namespace Class_Library
                 Error = "The section may not be blank!";
             }
             return Error;
+        }
+
+        public bool Find(int OrderNo)
+        {
+            //always return true
+            return true;
         }
     }
 }
