@@ -16,17 +16,18 @@ namespace Test_Framework
             Assert.IsNotNull(AnOrder);
         }
 
+
         [TestMethod]
         public void OrderNoPropertyOK()
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property
-            Int32 SomeOrderNo = 1;
+            //create TestData test data to assign to the property
+            Int32 TestData = 1;
             //assign the data to the property
-            AnOrder.OrderNo = SomeOrderNo;
+            AnOrder.OrderNo = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.OrderNo, SomeOrderNo);
+            Assert.AreEqual(AnOrder.OrderNo, TestData);
         }
 
 
@@ -35,12 +36,12 @@ namespace Test_Framework
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property
-            Int32 SomeComputerNo = 1;
+            //create TestData test data to assign to the property
+            Int32 TestData = 1;
             //assign the data to the property
-            AnOrder.ComputerNo = SomeComputerNo;
+            AnOrder.ComputerNo = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.ComputerNo, SomeComputerNo);
+            Assert.AreEqual(AnOrder.ComputerNo, TestData);
         }
 
 
@@ -49,12 +50,12 @@ namespace Test_Framework
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property
-            Int32 SomeCustomerNo = 1;
+            //create TestData test data to assign to the property
+            Int32 TestData = 1;
             //assign the data to the property
-            AnOrder.CustomerNo = SomeCustomerNo;
+            AnOrder.CustomerNo = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.CustomerNo, SomeCustomerNo);
+            Assert.AreEqual(AnOrder.CustomerNo, TestData);
         }
 
 
@@ -63,12 +64,12 @@ namespace Test_Framework
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property
-            string SomeItem = "Asus650";
+            //create TestData test data to assign to the property
+            string TestData = "Asus650";
             //assign the data to the property
-            AnOrder.ItemName = SomeItem;
+            AnOrder.ItemName = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.ItemName, SomeItem);
+            Assert.AreEqual(AnOrder.ItemName, TestData);
         }
 
         [TestMethod]
@@ -76,12 +77,12 @@ namespace Test_Framework
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
-            //create some test data to assign to the property
-            Int32 SomeInvoice = 635;
+            //create TestData test data to assign to the property
+            Int32 TestData = 635;
             //assign the data to the property
-            AnOrder.Invoice = SomeInvoice;
+            AnOrder.Invoice = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.Invoice, SomeInvoice);
+            Assert.AreEqual(AnOrder.Invoice, TestData);
         }
 
 
