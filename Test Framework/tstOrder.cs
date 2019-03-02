@@ -60,17 +60,18 @@ namespace Test_Framework
 
 
         [TestMethod]
-        public void ItemNamePropertyOK()
+        public void DeliveryDatePropertyOK()
         {
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create TestData test data to assign to the property
-            string TestData = "Asus650";
+            DateTime TestData = DateTime.Now.Date;
             //assign the data to the property
-            AnOrder.ItemName = TestData;
+            AnOrder.DeliveryDate = TestData;
             //test to see that the two values are the same
-            Assert.AreEqual(AnOrder.ItemName, TestData);
+            Assert.AreEqual(AnOrder.DeliveryDate, TestData);
         }
+
 
         [TestMethod]
         public void InvoicePropertyOK()
@@ -85,6 +86,63 @@ namespace Test_Framework
             Assert.AreEqual(AnOrder.Invoice, TestData);
         }
 
+
+        [TestMethod]
+        public void ItemNamePropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //create TestData test data to assign to the property
+            string TestData = "Asus650";
+            //assign the data to the property
+            AnOrder.ItemName = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnOrder.ItemName, TestData);
+        }
+
+
+        [TestMethod]
+        public void OrderDatePropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //create TestData test data to assign to the property
+            DateTime TestData = DateTime.Now.Date;
+            //assign the data to the property
+            AnOrder.OrderDate = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnOrder.OrderDate, TestData);
+        }
+
+
+        [TestMethod]
+        public void StatusPropertyOK()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //create TestData test data to assign to the property
+            Boolean TestData = true;
+            //assign the data to the property
+            AnOrder.Status = TestData;
+            //test to see that the two values are the same
+            Assert.AreEqual(AnOrder.Status, TestData);
+        }
+
+
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsOrder AnOrder = new clsOrder();
+            //boolean variable to store the result of the validation
+            Boolean Found = false;
+            //create some test data to test the method
+            Int32 OrderNo = 1;
+            //invoke the method
+            Found = AnOrder.Find(OrderNo);
+            //test to see that the result is OK i.e there was no error message returned
+            Assert.IsTrue(Found);
+        }
 
 
         [TestMethod]
