@@ -4,37 +4,214 @@ namespace Class_Library
 {
     public class clsOrder
     {
-        public int OrderNo { get; set; }
-        public int ComputerNo { get; set; }
-        public int CustomerNo { get; set; }
-        public string ItemName { get; set; }
-        public int Invoice { get; set; }
-        public DateTime DeliveryDate { get; set; }
-        public DateTime OrderDate { get; set; }
-        public bool Status { get; set; }
+        //private data member for the OrderNo property
+        private Int32 mOrderNo;
+        //private data member for the ComputerNo property
+        private int mComputerNo; 
+        //private data member for the CustomerNo property
+        private int mCustomerNo;
+        //private data member for the ItemName property
+        private string mItemName;
+        //private data member for the ItemName property
+        private string mCustomerName;
+        //private data member for the Invoice property
+        private int mInvoice;
+        //private data member for the DeliveryDate property
+        private DateTime mDeliveryDate;
+        //private data member for the OrderDate property
+        private DateTime mOrderDate;
+        //private data member for the Status property
+        private bool mStatus; 
 
-        public string Valid(string someOrder)
+        public int OrderNo
         {
-            //string variable to store the error message
-            string Error = "";
-            //if the name of the county is not blank
-            if (someOrder.Length > 50)
+            get
             {
-                //return an error message
-                Error = "The characters cannot be more than 50 characters";
+                //return the private data
+                return mOrderNo;
             }
-            if (someOrder.Length == 0)
+            set
             {
-                //return an error message
-                Error = "The section may not be blank!";
+                //set the value of the private data member
+                mOrderNo = value;
             }
-            return Error;
+
+        }
+
+        public int ComputerNo
+        {
+            get
+            {
+                //return the private data
+                return mComputerNo;
+            }
+            set
+            {
+                //set the value of the private data member
+                mComputerNo = value;
+            }
+
+        }
+
+        public int CustomerNo
+        {
+            get
+            {
+                //return the private data
+                return mCustomerNo;
+            }
+            set
+            {
+                //set the value of the private data member
+                mCustomerNo = value;
+            }
+
+        }
+
+       
+
+        public string ItemName
+        {
+            get
+            {
+                //return the private data
+                return mItemName;
+            }
+            set
+            {
+                //set the value of the private data member
+                mItemName = value;
+            }
+
+        }
+
+        public string CustomerName
+        {
+            get
+            {
+                //return the private data
+                return mCustomerName;
+            }
+            set
+            {
+                //set the value of the private data member
+                mCustomerName = value;
+            }
+
+        }
+
+        public int Invoice
+        {
+            get
+            {
+                //return the private data
+                return mInvoice;
+            }
+            set
+            {
+                //set the value of the private data member
+                mInvoice = value;
+            }
+
+        }
+
+        public DateTime DeliveryDate
+        {
+            get
+            {
+                //return the private data
+                return mDeliveryDate;
+            }
+            set
+            {
+                //set the value of the private data member
+                mDeliveryDate = value;
+            }
+
+        }
+
+        public DateTime OrderDate
+        {
+            get
+            {
+                //return the private data
+                return mOrderDate;
+            }
+            set
+            {
+                //set the value of the private data member
+                mOrderDate = value;
+            }
+
+        }
+
+        public bool Status
+        {
+            get
+            {
+                //return the private data
+                return mStatus;
+            }
+            set
+            {
+                //set the value of the private data member
+                mStatus = value;
+            }
+
         }
 
         public bool Find(int orderNo)
         {
-            //always return true
-            return true;
+            //initialise the DB Connection
+            clsDataConnection DB = new clsDataConnection();
+            //add the order no parameter
+            DB.AddParameter("OrderNo", OrderNo);
+            //execute the query
+            DB.Execute("sproc_tblOrder_FilterByOrderNo");
+            //if the record was found
+            if (DB.Count == 1)
+            {
+                //get the OrderNo
+                mOrderNo = Convert.ToInt32(DB.DataTable.Rows[0]["OrderNo"]);
+                //get the ComputerNo
+                mComputerNo = Convert.ToInt32(DB.DataTable.Rows[0]["ComputerNo"]);
+                //get the CustomerNo
+                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                //get the ItemName
+                mItemName = Convert.ToString(DB.DataTable.Rows[0]["ItemName"]);
+                //get the CustomerName
+                mCustomerName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
+                //get the Invoice
+                mInvoice = Convert.ToInt32(DB.DataTable.Rows[0]["Invoice"]);
+                //get the DeliveryDate
+                mDeliveryDate = Convert.ToDateTime(DB.DataTable.Rows[0]["DeliveryDate"]);
+                //get the OrderDate
+                mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
+                try
+                {
+                    //get the Status
+                    mStatus = Convert.ToBoolean(DB.DataTable.Rows[0]["Status"]);
+                }
+                catch
+                {
+                    mStatus = true;
+                }
+                //return success
+                return true;
+            }
+            else
+            {
+                //return failure
+                return false;
+            }
+        }
+
+
+
+        public string Valid(int ComputerNo, int CustomerNo, string ItemName, string CustomerName, int Invoice, string DeliveryDate, string OrderDate, string Status)
+        {
+            
+            return "";
         }
     }
 }
