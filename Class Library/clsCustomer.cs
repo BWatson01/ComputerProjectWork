@@ -136,19 +136,36 @@ namespace Class_Library
             return Error;
         }
 
-        public bool Find(int CustomerNo)     
+        public bool Find(int CustomerNo)
         {
             //set the private data members to the test data value
-            mCustomerAddress = "62 Charnwood Street";
-            mCustomerNo = 1;
-            mCustomerName = "Jake";
-            mPhoneNumber = 0792927638;
-            mCustomerPostCode = "LE2 0AU";
-            mActive = true;
-            //always return true
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the customer no to search for
+            DB.AddParameter("@CustomerNo") CustomerNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustomerNo");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mCustomerAddress = "62 Charnwood Street";
+                mCustomerNo = 1;
+                mCustomerName = "Jake";
+                mPhoneNumber = 0792927638;
+                mCustomerPostCode = "LE2 0AU";
+                mActive = true;
+                //always return true
+                return true;
+
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
 
         }
-
     }
+
 }
