@@ -1,0 +1,74 @@
+make group mdf
+
+
+
+cls class
+using System;
+
+namespace Class_Library
+{
+    public class clsComputerCat
+    {
+        //private data member for the ComputerName property
+        private Int32 mComputerName;
+        public int ComputerID { get; set; }
+        public int ComputerSize { get; set; }
+
+       
+        //public proeperty for the computer name
+        public int ComputerName
+        {
+            get
+            {
+                //return the private data
+                return mComputerName;
+
+            }
+            set
+            {
+                //set the value of the private data member
+                mComputerName = value;
+            }
+        }
+
+        public string ComputerManufacturer { get; set; }
+
+        public bool Find(int computerName)
+        {
+            //set the private data member to the test data value
+            mComputerName = 21;
+           
+            //always return true
+            return true;
+        }
+    }
+}
+
+
+
+--------------------------------------
+
+
+
+
+        public bool Find(int computerName)
+        {
+            //set the private data member to the test data value
+            mComputerName = 21;
+           
+            //always return true
+            return true;
+        }
+    }
+}
+
+stored procedure
+
+CREATE PROCEDURE sproc_tblComputer_filterbyComputerID
+--parameter to store the computer ID we are looking for 
+@ComputerID int
+
+AS
+--select all fields from the table where the Computer ID matches the parameter data
+	SELECT * from
+RETURN 0
