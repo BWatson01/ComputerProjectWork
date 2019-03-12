@@ -24,7 +24,7 @@ namespace Test_Framework
             int TestData = 211;
             //assign the data to the property
             AnComputerCat.ComputerID = TestData;
-            //test to see that the two values are the same
+            //test to see that the two values 
             Assert.AreEqual(AnComputerCat.ComputerID, TestData);
         }
 
