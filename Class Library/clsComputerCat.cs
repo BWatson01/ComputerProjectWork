@@ -95,7 +95,7 @@ namespace Class_Library
             }
             mComputerID = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerID"]);
             mComputerName = Convert.ToString(DB.dataTable.Rows[0]["ComputerName"]);
-            mComputerID = Convert.ToString(DB.dataTable.Rows[0]["ComputerManufacturer"]);
+            mComputerID = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerManufacturer"]);
             mComputerSize = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerSize"]);
             //return always true
             return true;

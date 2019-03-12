@@ -1,12 +1,22 @@
 ﻿using System;
-using Class_Library;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Class_Library;
+
 
 namespace Test_Framework
 {
     [TestClass]
     public class tstComputerCat
     {
+
+        //good test data
+        //create some test data to pass the method
+        string ComputerName = "macbook";
+        int ComputerSize = 1011;
+        string ComputerManufacturer = "Apple";
+
+
+           
         [TestMethod]
         public void InstanceOK()
         {
@@ -34,7 +44,7 @@ namespace Test_Framework
             //create an instance of the class we want to create
             clsComputerCat AnComputerCat = new clsComputerCat();
             //create some test data to assign to the property
-            Int32 TestData = 1011;
+            string TestData = "macbook";
             //assign the data to the property
             AnComputerCat.ComputerName = TestData;
             //test to see that the two values are the same
@@ -47,7 +57,7 @@ namespace Test_Framework
             //create an instance of the class we want to create
             clsComputerCat AnComputerCat = new clsComputerCat();
             //create some test data to assign to the property
-            string Testdata = "HP";
+            string Testdata = "Apple";
             //assign the data to the property
             AnComputerCat.ComputerManufacturer = Testdata;
             //test to see that the two values are the same
@@ -82,6 +92,20 @@ namespace Test_Framework
             Found = AnPc.Find(ComputerID);
             //test to see that the result is correct
             Assert.IsTrue(Found);
+        }
+
+        
+        [TestMethod]
+        public void ValidMethodOK()
+        {
+            //create an instance of the class we want to create
+            clsComputerCat AnComputerCat = new clsComputerCat();
+            //string variable to store any error message
+            String Error = "";
+            //invoke the method
+            Error = AnComputerCat.Valid(ComputerNamePropertyOK, ComputermanufacturerOK, ComputerSizeOK);
+            //test to see that the result is correct
+            Assert.AreEqual(Error, "");
         }
         [TestMethod]
         public void TestComputerNameFound()
