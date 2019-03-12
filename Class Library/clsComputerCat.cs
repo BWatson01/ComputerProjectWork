@@ -5,7 +5,7 @@ namespace Class_Library
     public class clsComputerCat
     {
         //private data member for the ComputerName property
-        private Int32 mComputerName;
+        private string mComputerName;
         //private data member for computerName
         private int mComputerID;
         //private int for mComputerID
@@ -16,7 +16,7 @@ namespace Class_Library
 
        
         //public proeperty for the computer name
-        public int ComputerName
+        public string ComputerName
         {
             get
             {
@@ -94,7 +94,7 @@ namespace Class_Library
 
             }
             mComputerID = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerID"]);
-            mComputerName = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerName"]);
+            mComputerName = Convert.ToString(DB.dataTable.Rows[0]["ComputerName"]);
             mComputerID = Convert.ToString(DB.dataTable.Rows[0]["ComputerManufacturer"]);
             mComputerSize = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerSize"]);
             //return always true
