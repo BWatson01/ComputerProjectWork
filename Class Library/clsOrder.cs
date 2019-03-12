@@ -328,8 +328,7 @@ namespace Class_Library
             }
 
 
-            //return any error messages
-            return Error;
+            
         }
 
 
