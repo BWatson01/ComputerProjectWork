@@ -160,7 +160,7 @@ namespace Class_Library
 
         }
 
-        public bool Find(int orderNo)
+        public bool Find(int OrderNo)
         {
             //initialise the DB Connection
             clsDataConnection DB = new clsDataConnection();
@@ -208,10 +208,130 @@ namespace Class_Library
 
 
 
-        public string Valid(int ComputerNo, int CustomerNo, string ItemName, string CustomerName, int Invoice, string DeliveryDate, string OrderDate, string Status)
+        public string Valid(string ComputerNo, string CustomerNo, string ItemName, string CustomerName, string Invoice, string DeliveryDate, string OrderDate, string Status)
         {
-            
-            return "";
+            //create a strng variable to store the error
+            String Error = "";
+            //check the min length of the ComputerNo
+            if (ComputerNo.Length == 0)
+            {
+                //set the error messsage
+                Error = Error + "ComputerNo is blank. ";
+            }
+            //check the max length of the ComputerNo
+            if (ComputerNo.Length > 3)
+            {
+                //set the error messsage
+                Error = Error + "ComputerNo must be less than 4 characters. ";
+            }
+
+
+            //check the min length of the CustomerNo
+            if (CustomerNo.Length == 0)
+            {
+                //set the error messsage
+                Error = Error + "CustomerNo is blank. ";
+            }
+            //check the max length of the CustomerNo
+            if (CustomerNo.Length > 3)
+            {
+                //set the error messsage
+                Error = Error + "CustomerNo must be less than 4 characters. ";
+            }
+
+
+            //check the min length of the ItemName
+            if (ItemName.Length == 0)
+            {
+                //set the error messsage
+                Error = Error + "ItemName is blank. ";
+            }
+            //check the max length of the ItemName
+            if (ItemName.Length > 50)
+            {
+                //set the error messsage
+                Error = Error + "ItemName must be less than 51 characters. ";
+            }
+
+
+            //check the min length of the CustomerName
+            if (CustomerName.Length == 0)
+            {
+                //set the error messsage
+                Error = Error + "CustomerName is blank. ";
+            }
+            //check the max length of the CustomerName
+            if (CustomerName.Length > 50)
+            {
+                //set the error messsage
+                Error = Error + "CustomerName must be less than 51 characters. ";
+            }
+
+
+            //check the min length of the Invoice
+            if (Invoice.Length == 0)
+            {
+                //set the error messsage
+                Error = Error + "Invoice is blank. ";
+            }
+            //check the max length of the Invoice
+            if (Invoice.Length > 6)
+            {
+                //set the error messsage
+                Error = Error + "Invoice must be less than 6 characters. ";
+            }
+
+
+            //test if the DeliveryDate is valid
+            try//try the operation
+            {
+                //var to store the DeliveryDate
+                DateTime DateTemp;
+                //assign the date to the temporary var
+                DateTemp = Convert.ToDateTime(DeliveryDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The Date cannot be in the past : ";
+                }
+            }
+            catch//if it failed report an error
+            {
+                //set the error messsage
+                Error = Error + "DeliveryDate is not valid. ";
+            }
+
+
+            //test if the OrderDate is valid
+            try//try the operation
+            {
+                //var to store the OrderDate
+                DateTime DateTemp;
+                //assign the date to the temporary var
+                DateTemp = Convert.ToDateTime(OrderDate);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The Date cannot be in the past : ";
+                }
+
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The Date cannot be in the future : ";
+                }
+            }
+            catch//if it failed report an error
+            {
+                //set the error messsage
+                Error = Error + "OrderDate is not valid. ";
+            }
+
+
+            //return any error messages
+            return Error;
         }
+
+
     }
 }
