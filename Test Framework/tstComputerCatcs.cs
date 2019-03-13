@@ -12,11 +12,11 @@ namespace Test_Framework
         //good test data
         //create some test data to pass the method
         string ComputerName = "macbook";
-        int ComputerSize = 1011;
+        string ComputerSize = "1011gb";
         string ComputerManufacturer = "Apple";
 
 
-           
+
         [TestMethod]
         public void InstanceOK()
         {
@@ -94,7 +94,7 @@ namespace Test_Framework
             Assert.IsTrue(Found);
         }
 
-        
+
         [TestMethod]
         public void ValidMethodOK()
         {
@@ -103,7 +103,7 @@ namespace Test_Framework
             //string variable to store any error message
             String Error = "";
             //invoke the method
-            Error = AnComputerCat.Valid(ComputerNamePropertyOK, ComputermanufacturerOK, ComputerSizeOK);
+            Error = AnComputerCat.Valid(ComputerName, ComputerManufacturer, ComputerSize);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
         }
@@ -123,7 +123,7 @@ namespace Test_Framework
 
             Found = AnComputerCat.Find(ComputerID);
             //check the computer Name
-            if (AnComputerCat.ComputerName != 21)
+            if (AnComputerCat.ComputerName != "macbook")
             {
                 OK = false;
             }
@@ -146,7 +146,7 @@ namespace Test_Framework
 
             Found = AnComputerCat.Find(ComputerID);
             //check the computer Name
-            if (AnComputerCat.ComputerManufacturer != "Test Manufacturer")
+            if (AnComputerCat.ComputerManufacturer != "Apple")
             {
                 OK = false;
             }
@@ -170,7 +170,7 @@ namespace Test_Framework
 
             Found = AnComputerCat.Find(ComputerID);
             //check the computer Name
-            if (AnComputerCat.ComputerSize != 21)
+            if (AnComputerCat.ComputerSize != 1011)
             {
                 OK = false;
             }
@@ -203,6 +203,21 @@ namespace Test_Framework
             //test to see that the result is correct 
             Assert.IsTrue(OK);
         }
-    }
+        [TestMethod]
 
+        public void ComputerNameMinLessOne()
+        {
+            //create an instance of the class we want to create
+            clsComputerCat AnComputerID = new clsComputerCat();
+            //STRING variable to store any error message
+            string Error = "";
+            //create some test data to pass to the method
+            string ComputerName = ""; //this should trigger an error
+                                      //invoke the method
+            Error = AnComputerID.Valid(ComputerName, ComputerManufacturer, ComputerSize);
+            //test to see that the result is correct
+            Assert.AreNotEqual(Error, "");
+        }
+    }
+    
   }

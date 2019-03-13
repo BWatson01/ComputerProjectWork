@@ -91,24 +91,25 @@ namespace Class_Library
             if (DB.Count ==1)
             {
                 //copy the data from the database to the private data members
-
+                mComputerID = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerID"]);
+                mComputerName = Convert.ToString(DB.dataTable.Rows[0]["ComputerName"]);
+                mComputerID = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerManufacturer"]);
+                mComputerSize = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerSize"]);
+                //return always true
+                return true;
             }
-            mComputerID = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerID"]);
-            mComputerName = Convert.ToString(DB.dataTable.Rows[0]["ComputerName"]);
-            mComputerID = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerManufacturer"]);
-            mComputerSize = Convert.ToInt32(DB.dataTable.Rows[0]["ComputerSize"]);
-            //return always true
-            return true;
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
+        
         }
-        //if no record was found
-        else
+public string Valid(string ComputerName, string ComputerManufacturer, string ComputerSize)
         {
-        //return false indicating a problem
-        return false;
-        }
+            return "";
 
-           
-           
         }
     }
-}
+    }
