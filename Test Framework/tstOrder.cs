@@ -1001,8 +1001,8 @@ namespace Test_Framework
             Error = AnOrder.Valid(ComputerNo, CustomerNo, ItemName, CustomerName, Invoice, DeliveryDate, OrderDate, Status);
             //test to see that the result is correct
             Assert.AreEqual(Error, "");
-            
-            //d
+            //done
         }
     }
 }
+
