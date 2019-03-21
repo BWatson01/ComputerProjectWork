@@ -68,16 +68,40 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AnManufacturer.aspx" />
     <Content Include="App_Data\GroupProject.mdf" />
     <Content Include="App_Data\GroupProject_log.ldf">
       <DependentUpon>GroupProject.mdf</DependentUpon>
     </Content>
+    <Content Include="Delete.aspx" />
     <Content Include="Global.asax" />
+    <Content Include="Manufacturer.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnManufacturer.aspx.cs">
+      <DependentUpon>AnManufacturer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnManufacturer.aspx.designer.cs">
+      <DependentUpon>AnManufacturer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Delete.aspx.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Delete.aspx.designer.cs">
+      <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Manufacturer.aspx.cs">
+      <DependentUpon>Manufacturer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manufacturer.aspx.designer.cs">
+      <DependentUpon>Manufacturer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +116,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Class Library\Class Library.csproj">
+      <Project>{30029452-ba29-46eb-b9f5-bbf30b1f03b3}</Project>
+      <Name>Class Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
