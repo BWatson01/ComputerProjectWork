@@ -32,7 +32,8 @@ namespace FrontEnd
 
         protected void btnManufacturer_Click(object sender, EventArgs e)
         {
-
+            //redirect to the Manufacturer PAGE
+            Response.Redirect("Manufacturer.aspx");
         }
     }
 }
