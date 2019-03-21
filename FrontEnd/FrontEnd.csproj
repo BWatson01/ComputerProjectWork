@@ -68,14 +68,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AnManufacturer.aspx" />
     <Content Include="AnOrder.aspx" />
     <Content Include="Delete.aspx" />
+    <Content Include="DeleteManufacturer.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HomePage.aspx" />
+    <Content Include="Manufacturer.aspx" />
     <Content Include="Order.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnManufacturer.aspx.cs">
+      <DependentUpon>AnManufacturer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnManufacturer.aspx.designer.cs">
+      <DependentUpon>AnManufacturer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AnOrder.aspx.cs">
       <DependentUpon>AnOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -90,6 +100,13 @@
     <Compile Include="Delete.aspx.designer.cs">
       <DependentUpon>Delete.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DeleteManufacturer.aspx.cs">
+      <DependentUpon>DeleteManufacturer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DeleteManufacturer.aspx.designer.cs">
+      <DependentUpon>DeleteManufacturer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -99,6 +116,13 @@
     </Compile>
     <Compile Include="HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manufacturer.aspx.cs">
+      <DependentUpon>Manufacturer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manufacturer.aspx.designer.cs">
+      <DependentUpon>Manufacturer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Order.aspx.cs">
       <DependentUpon>Order.aspx</DependentUpon>
