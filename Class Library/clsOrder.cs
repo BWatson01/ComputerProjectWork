@@ -21,7 +21,7 @@ namespace Class_Library
         //private data member for the OrderDate property
         private DateTime mOrderDate;
         //private data member for the Status property
-        private bool mStatus;
+        private string mStatus;
 
         public int OrderNo
         {
@@ -145,7 +145,7 @@ namespace Class_Library
 
         }
 
-        public bool Status
+        public string Status
         {
             get
             {
@@ -187,15 +187,9 @@ namespace Class_Library
                 mDeliveryDate = Convert.ToDateTime(DB.DataTable.Rows[0]["DeliveryDate"]);
                 //get the OrderDate
                 mOrderDate = Convert.ToDateTime(DB.DataTable.Rows[0]["OrderDate"]);
-                try
-                {
-                    //get the Status
-                    mStatus = Convert.ToBoolean(DB.DataTable.Rows[0]["Status"]);
-                }
-                catch
-                {
-                    mStatus = true;
-                }
+                //get the ItemName
+                mStatus = Convert.ToString(DB.DataTable.Rows[0]["Status"]);
+               
                 //return success
                 return true;
             }

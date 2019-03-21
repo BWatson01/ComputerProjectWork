@@ -144,7 +144,7 @@ namespace Test_Framework
             //create an instance of the class we want to create
             clsOrder AnOrder = new clsOrder();
             //create TestData test data to assign to the property
-            Boolean TestData = true;
+            string TestData = "Delivered";
             //assign the data to the property
             AnOrder.Status = TestData;
             //test to see that the two values are the same
@@ -360,7 +360,7 @@ namespace Test_Framework
             //invoke the method
             Found = AnOrder.Find(OrderNo);
             //check the order no
-            if (AnOrder.Status != true)
+            if (AnOrder.Status != "Processing")
             {
                 OK = false;
             }
