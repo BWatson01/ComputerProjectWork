@@ -117,38 +117,102 @@ namespace Class_Library
             }
         }
 
+      
 
-        public string Valid(string someCustomer)
-        {
-            //string variable to store the error message
-            string Error = "";
-            //if the name of the county is not blank
-            if (someCustomer.Length > 50)
-            {
-                //return an error message
-                Error = "The Customer Name cannot have more than 50 characters";
-            }
-            if (someCustomer.Length == 0)
-            {
-                //return an error message
-                Error = "The Customer Name may not be blank!";
-            }
-            return Error;
-        }
 
         public bool Find(int CustomerNo)     
         {
             //set the private data members to the test data value
-            mCustomerAddress = "62 Charnwood Street";
-            mCustomerNo = 1;
-            mCustomerName = "Jake";
-            mPhoneNumber = 0792927638;
-            mCustomerPostCode = "LE2 0AU";
-            mActive = true;
-            //always return true
-            return true;
+            clsDataConnection DB = new clsDataConnection();
+            //add the parameter for the customer no to search for
+            DB.AddParameter("@CustomerNo", CustomerNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblCustomer_FilterByCustomerNo");
+            //if one record is found (there should be either one or zero!)
+            if (DB.Count == 1)
+            {
+                //copy the data from the database to the private data members
+                mCustomerAddress = Convert.ToString(DB.DataTable.Rows[0]["CustomerAddress"]);
+                mCustomerNo = Convert.ToInt32(DB.DataTable.Rows[0]["CustomerNo"]);
+                mCustomerName = Convert.ToString(DB.DataTable.Rows[0]["CustomerName"]);
+                mPhoneNumber = Convert.ToInt32(DB.DataTable.Rows[0]["PhoneNumber"]);
+                mCustomerPostCode = Convert.ToString(DB.DataTable.Rows[0]["CustomerPostCode"]);
+                mActive = Convert.ToBoolean(DB.DataTable.Rows[0]["Active"]);
+                //always return true
+                return true;
+
+            }
+            //if no record was found
+            else
+            {
+                //return false indicating a problem
+                return false;
+            }
 
         }
 
+        public string Valid(string CustomerAddress, string CustomerName, string PhoneNumber, string CustomerPostCode)
+        {
+           //create a string variable to store the error
+            String Error = "";
+
+
+            if (CustomerPostCode.Length == 0)
+            {
+                //record the error
+                Error = Error + "The post code may not be blank : ";
+            }
+            //if the post code is too long
+            if (CustomerPostCode.Length > 9)
+            {
+                //record the error
+                Error = Error + "The post code must be less than 9 characters : ";
+            }
+
+
+
+            //if the Address is blank
+            if (CustomerAddress.Length == 0)
+            {
+                Error = Error + "The last name may not be blank";
+            }
+            if (CustomerAddress.Length > 50)
+            {
+                Error = Error + " The last name must be less than 50 characters :   ";
+            }
+
+
+            //if the Customer Name is blank
+
+            if (CustomerName.Length == 0)
+            {
+                Error = Error + "The first may not be blank";
+            }
+            if (CustomerName.Length > 50)
+            {
+                Error = Error + " The first name must be less than 50 characters :   ";
+            }
+
+
+            //if the Customer Phone Numberis blank
+
+            if (PhoneNumber.Length == 0)
+            {
+                Error = Error + "The first may not be blank";
+            }
+            if (PhoneNumber.Length > 11)
+            {
+                Error = Error + " The first name must be less than 50 characters :   ";
+            }
+
+
+            //retur the error
+            return Error;
+
+        }
+
+       
+
     }
+
 }
