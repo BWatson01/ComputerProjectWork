@@ -68,9 +68,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AnCustomer.aspx" />
     <Content Include="AnManufacturer.aspx" />
     <Content Include="AnOrder.aspx" />
+    <Content Include="Customer.aspx" />
     <Content Include="Delete.aspx" />
+    <Content Include="DeleteCustomer.aspx" />
     <Content Include="DeleteManufacturer.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HomePage.aspx" />
@@ -79,6 +82,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnCustomer.aspx.cs">
+      <DependentUpon>AnCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AnCustomer.aspx.designer.cs">
+      <DependentUpon>AnCustomer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AnManufacturer.aspx.cs">
       <DependentUpon>AnManufacturer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -93,12 +102,24 @@
     <Compile Include="AnOrder.aspx.designer.cs">
       <DependentUpon>AnOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Customer.aspx.cs">
+      <DependentUpon>Customer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.aspx.designer.cs">
+      <DependentUpon>Customer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Delete.aspx.cs">
       <DependentUpon>Delete.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Delete.aspx.designer.cs">
       <DependentUpon>Delete.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteCustomer.aspx.cs">
+      <DependentUpon>DeleteCustomer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteCustomer.aspx.designer.cs">
+      <DependentUpon>DeleteCustomer.aspx</DependentUpon>
     </Compile>
     <Compile Include="DeleteManufacturer.aspx.cs">
       <DependentUpon>DeleteManufacturer.aspx</DependentUpon>
